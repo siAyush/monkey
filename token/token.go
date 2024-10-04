@@ -5,7 +5,7 @@ const (
 	EOF     = "EOF"
 
 	// Identifiers + literals
-	IDENT = "IDENT"
+	IDENT = "IDENT" // identifier token
 	INT   = "INT"
 
 	// Operators
