@@ -317,7 +317,7 @@ func (p *Parser) parseBlockStatement() *ast.BlockStatement {
 
 func (p *Parser) parseFunctionLiteral() ast.Expression {
 	lit := &ast.FunctionLiteral{Token: p.curToken}
-	
+
 	if !p.expectPeek(token.LPAREN) {
 		return nil
 	}
@@ -347,9 +347,10 @@ func (p *Parser) parseFunctionParameters() []*ast.Identifier {
 		p.nextToken()
 		ident := &ast.Identifier{Token: p.curToken, Value: p.curToken.Literal}
 		identifiers = append(identifiers, ident)
-		if !p.expectPeek(token.RPAREN) {
-			return nil
-		}
+	}
+
+	if !p.expectPeek(token.RPAREN) {
+		return nil
 	}
 
 	return identifiers
